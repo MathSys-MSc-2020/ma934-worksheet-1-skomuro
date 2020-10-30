@@ -4,6 +4,7 @@ using Plots
 
 # List of functions to be exported
 export example_plot
+export task_plot
 
 # Definitions of any new types provided
 
@@ -30,4 +31,22 @@ function example_plot(n)
     return p
 end
 # End the module definition
+
+function task_plot(alpha, n)
+    title = "This is a task plot."
+    x1 = [ 2^k for k in 1:n]
+    y1 = x1^alpha * log(x1)
+
+    # Plot the points
+    p = plot(x1, y1, seriestype=:scatter,label="Some sample points",
+    title=title, xlabel="x", ylabel="x^alpha log(x)", markersize=10, markercolor="red")
+
+    # Now plot the true function
+    x2 = [2^k for k in 1:n]
+    y2 = x2^alpha * log(x2)
+    plot!(x2, y2, label="Underlying function.", color="green", linewidth=2)
+    return p
+end
+# End the module definition
+
 end

@@ -25,6 +25,5 @@ n = args["group1"]["parameter1"]
 fnt = Plots.font("DejaVu Sans", 10.0)
 default(titlefont=fnt, guidefont=fnt, tickfont=fnt, legendfont=fnt)
 p = example_plot(n)
-
 # Save the plot as a pdf file
 savefig(p, "testplot.pdf")
